@@ -4,7 +4,7 @@ const formationSchema = new mongoose.Schema({
     nom_formation: {
         type: String,
         required: true,
-        unique: true,
+        unique: true,        
         trim: true
     },
     type_formation: {
@@ -23,5 +23,5 @@ const formationSchema = new mongoose.Schema({
     },
 });
 
-const FormationModel = mongoose.model('Formation', formationSchema);
+const FormationModel = mongoose.model('formation', formationSchema);
 module.exports = FormationModel;

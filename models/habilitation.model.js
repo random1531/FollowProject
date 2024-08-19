@@ -1,6 +1,6 @@
 const mongoose = require('mongoose');
 
-const formationSchema = new mongoose.Schema({
+const habilitationSchema = new mongoose.Schema({
     id_operator: {
         type: String,
         required: true,
@@ -50,5 +50,5 @@ const formationSchema = new mongoose.Schema({
     }
 });
 
-const FormationModel = mongoose.model('habilitation', formationSchema);
-module.exports = FormationModel;
+const HabilitationModel = mongoose.model('habilitation', habilitationSchema);
+module.exports = HabilitationModel;
