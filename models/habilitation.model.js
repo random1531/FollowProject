@@ -1,56 +1,54 @@
-const mongoose = require('mongoose')
+const mongoose = require('mongoose');
 
 const formationSchema = new mongoose.Schema({
-
-    id_operator:{
+    id_operator: {
         type: String,
-        require:true,
+        required: true,
         unique: true,
-        trimp:true
+        trim: true
     },
-
-    date_de_formation:{
+    id_formation: {
+        type: String,
+        required: true,
+        unique: true,
+        trim: true
+    },
+    date_de_formation: {
         type: String,
         required: true,
         minLength: 4,
         maxLength: 255,
-        unique: false,
-        trimp: true
+        trim: true
     },
-    date_de_recyclage:{
+    date_de_recyclage: {
         type: String,
         required: true,
         minLength: 4,
         maxLength: 255,
-        unique: false,
-        trimp: true
+        trim: true
     },
-    qcm:{
+    qcm: {
         type: String,
         required: true,
         minLength: 4,
         maxLength: 255,
-        unique: false,
-        trimp: true
+        trim: true
     },
-    autorisation_interne:{
+    autorisation_interne: {
         type: String,
         required: true,
         minLength: 4,
         maxLength: 255,
-        unique: false,
-        trimp: true
+        trim: true
     },
-    commentaire:{
+    commentaire: {
         type: String,
         required: false,
         minLength: 4,
         maxLength: 255,
-        unique: false,
-        trimp: true
+        trim: true
     }
+});
 
-})
-
-const formationModel = mongoose.model('formation', formationSchema)
-module.exports= formationModel
+const FormationModel = mongoose.model('habilitation', formationSchema);
+module.exports = FormationModel;

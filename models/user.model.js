@@ -34,7 +34,7 @@ const userSchema = new mongoose.Schema(
             unique: false,
             trimp: true
         },
-        formation:{
+        id_habilitation:{
             type: [String]
         }
     },{

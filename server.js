@@ -1,10 +1,12 @@
 const express = require('express');
-require('dotenv').config({ path: './config/.env' })
 const userRoutes = require('./routes/user.routes')
+const habilitationRoutes = require('./routes/habilitation.routes')
+const formationRoutes = require('./routes/formation.routes')
 const bodyParser = require('body-parser')
-require('./config/db')
 const cors = require('cors');
 const app = express()
+require('dotenv').config({ path: './config/.env' })
+require('./config/db')
 
 
 
@@ -18,9 +20,12 @@ app.use(cors({
 
 //Routes
 app.use('/api/user', userRoutes)
+app.use('/api/habilitation', habilitationRoutes)
+app.use('/api/formation', formationRoutes)
+
 
 //End
 app.listen(process.env.PORT, () => {
-    console.log(`Hello sur le ${process.env.PORT}`)
+    console.log(`Connecter sur le port ${process.env.PORT}`)
 })
 
