@@ -1,7 +1,6 @@
 const swaggerJSDoc = require('swagger-jsdoc');
 const swaggerUi = require('swagger-ui-express');
 
-// Définition des options de configuration pour swagger-jsdoc
 const swaggerOptions = {
     definition: {
         openapi: '3.0.0',
@@ -17,14 +16,11 @@ const swaggerOptions = {
             }
         ]
     },
-    apis: ['./routes/*.js'], // Ce chemin doit pointer vers vos fichiers de route
+    apis: ['./documentation api/doc.js'], // Assurez-vous que le chemin est correct
 };
 
-// Initialisation de swagger-jsdoc
 const swaggerSpec = swaggerJSDoc(swaggerOptions);
 
 module.exports = (app) => {
     app.use('/api-docs', swaggerUi.serve, swaggerUi.setup(swaggerSpec));
 };
-
-    

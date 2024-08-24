@@ -1,5 +1,5 @@
 const express = require('express');
-const userRoutes = require('./routes/user.routes')
+const userRoutes = require('./routes/operateur.routes')
 const habilitationRoutes = require('./routes/habilitation.routes')
 const formationRoutes = require('./routes/formation.routes')
 const swaggerSetup = require('./swagger');
