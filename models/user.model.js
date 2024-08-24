@@ -21,7 +21,7 @@ const userSchema = new mongoose.Schema(
         atelier:{
             type: String,
             required: false,
-            minLength: 4,
+            minLength: 1,
             maxLength: 255,
             unique: false,
             trimp: true
@@ -35,7 +35,9 @@ const userSchema = new mongoose.Schema(
             trimp: true
         },
         id_habilitation:{
-            type: [String]
+            type: [mongoose.Schema.Types.ObjectId],  // Utiliser ObjectId pour les références
+            ref: 'habilitation',
+            require: false // Référence au modèle Habilitation
         }
     },{
         timestamps: true

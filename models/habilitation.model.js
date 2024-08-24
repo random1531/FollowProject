@@ -2,15 +2,15 @@ const mongoose = require('mongoose');
 
 const habilitationSchema = new mongoose.Schema({
     id_operator: {
-        type: String,
-        required: true,
-        unique: true,
+        type: mongoose.Schema.Types.ObjectId, 
+        ref: 'user',  // Référence au modèle User
+        required: false,       
         trim: true
     },
     id_formation: {
-        type: String,
+        type: mongoose.Schema.Types.ObjectId,  
+        ref: 'formation',  
         required: true,
-        unique: true,
         trim: true
     },
     date_de_formation: {
