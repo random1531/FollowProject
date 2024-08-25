@@ -1,5 +1,5 @@
 const express = require('express');
-const userRoutes = require('./routes/operateur.routes')
+const operateurRoutes = require('./routes/operateur.routes')
 const habilitationRoutes = require('./routes/habilitation.routes')
 const formationRoutes = require('./routes/formation.routes')
 const swaggerSetup = require('./swagger');
@@ -22,7 +22,7 @@ app.use(cors({
 swaggerSetup(app);
 
 //Routes
-app.use('/api/user', userRoutes)
+app.use('/api/operaterur', operateurRoutes)
 app.use('/api/habilitation', habilitationRoutes)
 app.use('/api/formation', formationRoutes)
 
