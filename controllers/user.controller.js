@@ -13,3 +13,12 @@ module.exports.addUser = async (req, res) => {
     }
 }
 
+module.exports.login = async (req, res) => {
+    try {
+        const user = await UserModel.findOne(req.body.userName, req.body.password)
+        res.send(user)
+    } catch {
+
+        res.status(400).send()
+    }
+}
