@@ -726,6 +726,8 @@
  * /formMachineOps:
  *   get:
  *     summary: Récupérer toutes les formations machine opérateur
+ *     tags:
+ *       - FormMachineOperateur
  *     responses:
  *       200:
  *         description: Liste de toutes les formations machine opérateur
@@ -743,6 +745,8 @@
  * /formMachineOps:
  *   post:
  *     summary: Ajouter une nouvelle formation machine opérateur
+ *     tags:
+ *       - FormMachineOperateur
  *     requestBody:
  *       required: true
  *       content:
@@ -759,6 +763,8 @@
  * /formMachineOps/{id}:
  *   put:
  *     summary: Mettre à jour une formation machine opérateur
+ *     tags:
+ *       - FormMachineOperateur
  *     parameters:
  *       - in: path
  *         name: id
@@ -783,6 +789,8 @@
  * /formMachineOps/{id}:
  *   delete:
  *     summary: Supprimer une formation machine opérateur
+ *     tags:
+ *       - FormMachineOperateur
  *     parameters:
  *       - in: path
  *         name: id
@@ -793,4 +801,106 @@
  *     responses:
  *       200:
  *         description: Formation machine opérateur supprimée avec succès
+ */
+
+/**
+ * @swagger
+ * components:
+ *   schemas:
+ *     FormationMachine:
+ *       type: object
+ *       required:
+ *         - nom_machine
+ *         - type_machine
+ *         - id_formation
+ *       properties:
+ *         nom_machine:
+ *           type: string
+ *           description: Nom de la machine
+ *         type_machine:
+ *           type: string
+ *           description: Type de la machine
+ *         id_formation:
+ *           type: string
+ *           description: ID de la formation liée
+ */
+
+/**
+ * @swagger
+ * /formationMachines:
+ *   get:
+ *     summary: Récupérer toutes les machines de formation
+ *     tags:
+ *       - FormationMachine
+ *     responses:
+ *       200:
+ *         description: Liste de toutes les machines de formation
+ *         content:
+ *           application/json:
+ *             schema:
+ *               type: array
+ *               items:
+ *                 $ref: '#/components/schemas/FormationMachine'
+ */
+
+/**
+ * @swagger
+ * /formationMachines:
+ *   post:
+ *     summary: Ajouter une nouvelle machine de formation
+ *     tags:
+ *       - FormationMachine
+ *     requestBody:
+ *       required: true
+ *       content:
+ *         application/json:
+ *           schema:
+ *             $ref: '#/components/schemas/FormationMachine'
+ *     responses:
+ *       201:
+ *         description: Machine de formation créée avec succès
+ */
+
+/**
+ * @swagger
+ * /formationMachines/{id}:
+ *   put:
+ *     summary: Mettre à jour une machine de formation
+ *     tags:
+ *       - FormationMachine
+ *     parameters:
+ *       - in: path
+ *         name: id
+ *         schema:
+ *           type: string
+ *         required: true
+ *         description: ID de la machine de formation
+ *     requestBody:
+ *       required: true
+ *       content:
+ *         application/json:
+ *           schema:
+ *             $ref: '#/components/schemas/FormationMachine'
+ *     responses:
+ *       200:
+ *         description: Machine de formation mise à jour avec succès
+ */
+
+/**
+ * @swagger
+ * /formationMachines/{id}:
+ *   delete:
+ *     summary: Supprimer une machine de formation
+ *     tags:
+ *       - FormationMachine
+ *     parameters:
+ *       - in: path
+ *         name: id
+ *         schema:
+ *           type: string
+ *         required: true
+ *         description: ID de la machine de formation
+ *     responses:
+ *       200:
+ *         description: Machine de formation supprimée avec succès
  */
