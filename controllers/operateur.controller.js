@@ -23,8 +23,6 @@ module.exports.getAllOperateurs = async(req, res) => {
 
 
 
-
-
 module.exports.updateOperateur = async(req, res) => {
     if(!ObjectID.isValid(req.params.id))
         return res.status(400).send('ID inconnu : ' + req.params.id)

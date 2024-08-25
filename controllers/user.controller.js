@@ -14,11 +14,23 @@ module.exports.addUser = async (req, res) => {
 }
 
 module.exports.login = async (req, res) => {
+    const { userName, password } = req.body;
     try {
-        const user = await UserModel.findOne(req.body.userName, req.body.password)
-        res.send(user)
-    } catch {
+        const user = await UserModel.findOne({ userName });
+        if (!user) {
+            return res.status(400).json({ message: "User not found" });
+        }
 
-        res.status(400).send()
+        const validPassword = await user.comparePassword(password);
+        if (!validPassword) {
+            return res.status(400).json({ message: "Wrong password" });
+        }
+
+        const token = user.generateAuthToken();  // Génère le token JWT
+        res.status(200).json({ token });  // Renvoie le token JWT
+    }
+    catch (err) {
+        res.status(400).send({ err });
     }
 }
+

@@ -687,3 +687,110 @@
  *         description: Internal server error
  */
 
+/**
+ * @swagger
+ * components:
+ *   schemas:
+ *     FormMachineOperateur:
+ *       type: object
+ *       required:
+ *         - id_formation_machine
+ *         - id_operateur
+ *         - date_debut
+ *         - type
+ *       properties:
+ *         id_formation_machine:
+ *           type: string
+ *           description: ID de la formation machine
+ *         id_operateur:
+ *           type: string
+ *           description: ID de l'opérateur
+ *         date_debut:
+ *           type: string
+ *           format: date
+ *           description: Date de début de la formation
+ *         date_fin:
+ *           type: string
+ *           format: date
+ *           description: Date de fin de la formation
+ *         type:
+ *           type: string
+ *           description: Type de formation
+ *         fichier_signe:
+ *           type: string
+ *           description: Chemin vers le fichier signé
+ */
+
+/**
+ * @swagger
+ * /formMachineOps:
+ *   get:
+ *     summary: Récupérer toutes les formations machine opérateur
+ *     responses:
+ *       200:
+ *         description: Liste de toutes les formations machine opérateur
+ *         content:
+ *           application/json:
+ *             schema:
+ *               type: array
+ *               items:
+ *                 $ref: '#/components/schemas/FormMachineOperateur'
+ */
+
+
+/**
+ * @swagger
+ * /formMachineOps:
+ *   post:
+ *     summary: Ajouter une nouvelle formation machine opérateur
+ *     requestBody:
+ *       required: true
+ *       content:
+ *         application/json:
+ *           schema:
+ *             $ref: '#/components/schemas/FormMachineOperateur'
+ *     responses:
+ *       201:
+ *         description: Formation machine opérateur créée avec succès
+ */
+
+/**
+ * @swagger
+ * /formMachineOps/{id}:
+ *   put:
+ *     summary: Mettre à jour une formation machine opérateur
+ *     parameters:
+ *       - in: path
+ *         name: id
+ *         schema:
+ *           type: string
+ *         required: true
+ *         description: ID de la formation machine opérateur
+ *     requestBody:
+ *       required: true
+ *       content:
+ *         application/json:
+ *           schema:
+ *             $ref: '#/components/schemas/FormMachineOperateur'
+ *     responses:
+ *       200:
+ *         description: Formation machine opérateur mise à jour avec succès
+ */
+
+
+/**
+ * @swagger
+ * /formMachineOps/{id}:
+ *   delete:
+ *     summary: Supprimer une formation machine opérateur
+ *     parameters:
+ *       - in: path
+ *         name: id
+ *         schema:
+ *           type: string
+ *         required: true
+ *         description: ID de la formation machine opérateur
+ *     responses:
+ *       200:
+ *         description: Formation machine opérateur supprimée avec succès
+ */
